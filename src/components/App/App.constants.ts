@@ -2,8 +2,8 @@ import type { DayMeta, RunDay, WeekPlan } from './App.types';
 
 export const kickerClass = 'mb-3 flex items-center gap-2 text-[0.6875rem] font-bold tracking-[0.14em] text-stone-600 uppercase';
 export const displayHeadingClass = 'font-display text-[clamp(3.5rem,6.3vw,6.5rem)] leading-[0.84] font-bold tracking-[-0.055em] uppercase italic';
-export const iconButtonClass = 'grid size-10 shrink-0 place-items-center border border-stone-300 bg-white transition hover:border-stone-950 hover:bg-stone-950 hover:text-white';
-export const panelClass = 'border border-stone-950 bg-white';
+export const iconButtonClass = 'grid size-10 shrink-0 place-items-center border border-line bg-white transition hover:border-frame hover:bg-stone-950 hover:text-white';
+export const panelClass = 'border border-frame bg-white';
 
 export const sessionDotClasses: Record<DayMeta['type'], string> = {
   none: 'bg-stone-300',

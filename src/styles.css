@@ -4,6 +4,9 @@
 @theme {
   --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
   --font-display: "Oswald", Impact, sans-serif;
+  --color-frame: var(--color-stone-950);
+  --color-line: var(--color-stone-400);
+  --color-hairline: var(--color-stone-300);
 }
 
 @layer base {
@@ -24,7 +27,7 @@
   :where(button, a, input, summary, [tabindex]):focus-visible {
     outline: 3px solid white;
     outline-offset: 3px;
-    box-shadow: 0 0 0 6px var(--color-stone-950);
+    box-shadow: 0 0 0 6px var(--color-frame);
   }
 
   @media (prefers-reduced-motion: reduce) {

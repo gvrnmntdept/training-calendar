@@ -215,13 +215,13 @@ export default function App() {
     <div className="min-h-screen bg-stone-100 text-stone-950 [background-image:linear-gradient(rgba(17,17,15,0.025)_1px,transparent_1px),linear-gradient(90deg,rgba(17,17,15,0.025)_1px,transparent_1px)] [background-size:28px_28px]">
       <a className="fixed top-3 left-3 z-50 -translate-y-24 bg-stone-950 px-4 py-3 text-sm font-bold text-white transition focus:translate-y-0" href="#main-content">Skip to main content</a>
       <div className="mx-auto w-[min(calc(100%-2rem),92.5rem)] pb-9 sm:w-[min(calc(100%-2.5rem),92.5rem)]">
-        <nav className="relative z-10 grid min-h-20 grid-cols-[1fr_auto] items-center border-b border-stone-950 md:grid-cols-[1fr_auto_1fr]" aria-label="Primary navigation">
+        <nav className="relative z-10 grid min-h-20 grid-cols-[1fr_auto] items-center border-b border-frame md:grid-cols-[1fr_auto_1fr]" aria-label="Primary navigation">
           <a className="inline-flex w-max items-center gap-3 text-[0.8125rem] font-bold tracking-[0.13em]" href="#calendar" aria-label="Form training home">
             <span className="font-display grid size-8 place-items-center bg-lime-300 text-base font-bold [clip-path:polygon(0_0,100%_0,77%_100%,0_100%)]">F</span>
             <span>FORM / BASE</span>
           </a>
           <div className="hidden items-stretch gap-8 self-stretch text-xs font-bold tracking-[0.08em] text-stone-600 uppercase md:flex">
-            <a className="flex items-center border-b-[3px] border-blue-600 text-stone-950" href="#calendar">Calendar</a>
+            <a className="flex items-center border-b-[3px] border-lime-300 text-stone-950" href="#calendar">Calendar</a>
             <a className="flex items-center border-b-[3px] border-transparent transition hover:text-stone-950" href="#outlook">Outlook</a>
           </div>
           <button type="button" className="inline-flex items-center gap-2 justify-self-end bg-stone-950 px-4 py-3 text-xs font-bold tracking-[0.08em] text-white uppercase transition hover:bg-blue-600" onClick={goTodayAndScroll}>
@@ -245,15 +245,15 @@ export default function App() {
           <div className="absolute right-[11%] bottom-[12%] grid size-20 place-items-center rounded-full bg-lime-300 text-stone-950 ring-16 ring-lime-300/10 sm:size-24"><Footprints size={32} /></div>
         </div>
         <div className="absolute right-0 bottom-0 left-0 z-20 grid grid-cols-4 bg-white text-stone-950 lg:right-auto lg:w-[78%] lg:min-w-[48.75rem]">
-          <div className="border-r border-stone-200 px-2 py-3 sm:px-4 sm:py-4 lg:px-7 lg:py-5">
+          <div className="border-r border-line px-2 py-3 sm:px-4 sm:py-4 lg:px-7 lg:py-5">
             <span className="mb-1 block text-[0.5rem] font-bold tracking-[0.12em] text-stone-500 uppercase sm:text-[0.625rem]">Current phase</span>
             <strong className="font-display text-xs font-semibold uppercase sm:text-base lg:text-2xl">{phase}</strong>
           </div>
-          <div className="border-r border-stone-200 px-2 py-3 sm:px-4 sm:py-4 lg:px-7 lg:py-5">
+          <div className="border-r border-line px-2 py-3 sm:px-4 sm:py-4 lg:px-7 lg:py-5">
             <span className="mb-1 block text-[0.5rem] font-bold tracking-[0.12em] text-stone-500 uppercase sm:text-[0.625rem]">Plan position</span>
             <strong className="font-display text-xs font-semibold uppercase sm:text-base lg:text-2xl">{details.outOfRange ? '—' : `${details.week} / 8`}</strong>
           </div>
-          <div className="border-r border-stone-200 px-2 py-3 sm:px-4 sm:py-4 lg:px-7 lg:py-5">
+          <div className="border-r border-line px-2 py-3 sm:px-4 sm:py-4 lg:px-7 lg:py-5">
             <span className="mb-1 block text-[0.5rem] font-bold tracking-[0.12em] text-stone-500 uppercase sm:text-[0.625rem]">Weekly distance</span>
             <strong className="font-display text-xs font-semibold uppercase sm:text-base lg:text-2xl">{activeWeek?.total ?? '—'}</strong>
           </div>
@@ -268,7 +268,7 @@ export default function App() {
       <main id="main-content">
       <section className="py-5 scroll-mt-4" id="calendar" aria-labelledby="calendar-heading">
         <div className={panelClass}>
-          <div className="flex min-h-26 flex-col gap-5 border-b border-stone-950 px-4 py-5 sm:px-6 md:flex-row md:items-center md:justify-between">
+          <div className="flex min-h-26 flex-col gap-5 border-b border-frame px-4 py-5 sm:px-6 md:flex-row md:items-center md:justify-between">
             <div>
               <p className={cn(kickerClass, 'mb-1')}>Training calendar</p>
               <h2 className="font-display text-2xl font-semibold tracking-tight uppercase sm:text-3xl" id="calendar-heading">{calendarView === 'month'
@@ -279,13 +279,13 @@ export default function App() {
               <CalendarViewSwitcher view={calendarView} onChange={setCalendarView} />
               <div className="flex items-center">
                 <button type="button" className={iconButtonClass} aria-label={`Previous ${calendarView}`} onClick={() => shiftCalendar(-1)}><ChevronLeft /></button>
-                <button type="button" className="h-10 flex-1 border-y border-stone-300 bg-white px-4 text-[0.625rem] font-bold tracking-[0.08em] uppercase transition hover:bg-stone-100 sm:flex-none" onClick={goToday}>Today</button>
+                <button type="button" className="h-10 flex-1 border-y border-line bg-white px-4 text-[0.625rem] font-bold tracking-[0.08em] uppercase transition hover:bg-stone-100 sm:flex-none" onClick={goToday}>Today</button>
                 <button type="button" className={iconButtonClass} aria-label={`Next ${calendarView}`} onClick={() => shiftCalendar(1)}><ChevronRight /></button>
                 <details className="group relative ml-2" onToggle={(event) => setSettingsOpen(event.currentTarget.open)}>
-                  <summary className={cn(iconButtonClass, 'cursor-pointer list-none group-open:border-stone-950 group-open:bg-stone-950 group-open:text-white [&::-webkit-details-marker]:hidden')} aria-controls="plan-settings-panel" aria-expanded={settingsOpen} aria-label="Plan settings" role="button"><Settings2 aria-hidden="true" size={18} /></summary>
-                  <div className="absolute top-[calc(100%+0.5rem)] right-0 z-30 w-68 border border-stone-950 bg-white p-4 text-stone-950 shadow-[8px_8px_0_rgba(17,17,15,0.12)]" id="plan-settings-panel" role="group" aria-labelledby="plan-settings-heading">
+                  <summary className={cn(iconButtonClass, 'cursor-pointer list-none group-open:border-frame group-open:bg-stone-950 group-open:text-white [&::-webkit-details-marker]:hidden')} aria-controls="plan-settings-panel" aria-expanded={settingsOpen} aria-label="Plan settings" role="button"><Settings2 aria-hidden="true" size={18} /></summary>
+                  <div className="absolute top-[calc(100%+0.5rem)] right-0 z-30 w-68 border border-frame bg-white p-4 text-stone-950 shadow-[8px_8px_0_rgba(17,17,15,0.12)]" id="plan-settings-panel" role="group" aria-labelledby="plan-settings-heading">
                     <p className={cn(kickerClass, '!text-stone-950')} id="plan-settings-heading">Plan settings</p>
-                    <label className="flex min-h-10 w-full items-center justify-between gap-2 border border-stone-300 px-3">
+                    <label className="flex min-h-10 w-full items-center justify-between gap-2 border border-line px-3">
                       <span className="text-[0.625rem] font-bold tracking-wide text-stone-500 uppercase">Block starts</span>
                       <input
                         className="min-w-0 bg-transparent text-xs font-semibold outline-none"
@@ -302,13 +302,13 @@ export default function App() {
           </div>
 
           <div className="grid min-h-[38rem] lg:grid-cols-[minmax(0,1.55fr)_minmax(22.5rem,0.85fr)]">
-            <div className="min-w-0 border-b border-stone-950 lg:border-r lg:border-b-0">
+            <div className="min-w-0 border-b border-frame lg:border-r lg:border-b-0">
               {calendarView === 'month' ? (
                 <div role="grid" aria-label={`${calendarMonth.toLocaleDateString(undefined, { month: 'long', year: 'numeric' })} training calendar`}>
-                  <div className="grid grid-cols-7 border-b border-stone-300 bg-stone-50" role="row">
+                  <div className="grid grid-cols-7 border-b border-line bg-stone-50" role="row">
                     {dayLabels.map((label) => <span className="px-1 py-3 text-center text-[0.5625rem] font-bold tracking-[0.08em] text-stone-600 sm:text-[0.625rem]" key={label} role="columnheader">{label}</span>)}
                   </div>
-                  <div className="grid min-h-[34.75rem] grid-cols-7 grid-rows-6 bg-stone-300 gap-px">
+                  <div className="grid min-h-[34.75rem] grid-cols-7 grid-rows-6 bg-line gap-px">
                     {Array.from({ length: 6 }, (_, weekIndex) => (
                       <div className="contents" key={formatDateInput(monthDays[weekIndex * 7])} role="row">
                       {monthDays.slice(weekIndex * 7, weekIndex * 7 + 7).map((date) => {
@@ -329,7 +329,7 @@ export default function App() {
                             'relative flex min-h-16 min-w-0 flex-col bg-white p-1.5 text-left transition hover:bg-stone-100 sm:min-h-20 sm:p-2.5',
                             !isCurrentMonth && '!bg-stone-50 !text-stone-600',
                             isCompleted && !isSelected && '!bg-lime-50',
-                            isSelected && 'z-10 !bg-stone-950 !text-white ring-2 ring-inset ring-stone-950',
+                            isSelected && 'z-10 !bg-stone-950 !text-white ring-2 ring-inset ring-frame',
                           )}
                           onClick={() => selectDate(date)}
                           onKeyDown={(event) => handleCalendarKeyDown(event, date)}
@@ -373,9 +373,9 @@ export default function App() {
                           type="button"
                           key={value}
                           className={cn(
-                            'grid min-h-16 grid-cols-[3rem_minmax(0,1fr)_auto] items-center gap-3 border border-stone-300 bg-white px-3 py-2 text-left transition hover:border-stone-950 hover:bg-stone-100 sm:grid-cols-[4.875rem_minmax(0,1fr)_auto] sm:gap-4',
+                            'grid min-h-16 grid-cols-[3rem_minmax(0,1fr)_auto] items-center gap-3 border border-line bg-white px-3 py-2 text-left transition hover:border-frame hover:bg-stone-100 sm:grid-cols-[4.875rem_minmax(0,1fr)_auto] sm:gap-4',
                             isCompleted && !isSelected && '!bg-lime-50',
-                            isSelected && 'border-stone-950 !bg-stone-950 !text-white hover:!bg-stone-950',
+                            isSelected && 'border-frame !bg-stone-950 !text-white hover:!bg-stone-950',
                           )}
                           onClick={() => selectDate(date)}
                           data-calendar-date={value}
@@ -403,7 +403,7 @@ export default function App() {
             </div>
 
             <aside className="min-w-0 bg-white">
-              <div className="flex min-h-26 items-center justify-between gap-3 border-b border-stone-950 bg-stone-50 px-3 py-4 sm:px-5">
+              <div className="flex min-h-26 items-center justify-between gap-3 border-b border-frame bg-stone-50 px-3 py-4 sm:px-5">
                 <button type="button" className={iconButtonClass} aria-label="Previous day" onClick={() => shiftSelectedDay(-1)}><ChevronLeft /></button>
                 <div className="min-w-0 text-center" aria-atomic="true" aria-live="polite">
                   <div className="mb-1 flex flex-col items-center justify-center gap-1 sm:flex-row sm:gap-2">
@@ -418,7 +418,7 @@ export default function App() {
             </aside>
           </div>
 
-          <div className="flex flex-wrap gap-x-5 gap-y-2 border-t border-stone-950 px-4 py-3 text-[0.5625rem] font-bold tracking-wider text-stone-500 uppercase sm:px-6">
+          <div className="flex flex-wrap gap-x-5 gap-y-2 border-t border-frame px-4 py-3 text-[0.5625rem] font-bold tracking-wider text-stone-500 uppercase sm:px-6">
             <span className="inline-flex items-center gap-2"><i aria-hidden="true" className="size-1.5 bg-lime-300" /> Strength</span>
             <span className="inline-flex items-center gap-2"><i aria-hidden="true" className="size-1.5 bg-blue-600" /> Run / long run</span>
             <span className="inline-flex items-center gap-2"><i aria-hidden="true" className="size-1.5 bg-orange-500" /> Optional 5K effort</span>
@@ -468,7 +468,7 @@ export default function App() {
           </div>
         </div>
 
-        <div className="grid gap-px bg-white/20 sm:grid-cols-2">
+        <div className="grid gap-px bg-frame sm:grid-cols-2">
           <article className="relative row-span-2 min-w-0 overflow-hidden bg-white p-[clamp(1.75rem,4vw,3.25rem)] text-stone-950">
             <div className="mb-14 grid size-12 place-items-center bg-lime-300"><Target /></div>
             <p className={kickerClass}>Primary focus</p>
@@ -500,7 +500,7 @@ export default function App() {
           <p className={kickerClass}>Minimal operating rules</p>
           <h2 className={cn(displayHeadingClass, 'text-[clamp(3rem,5vw,5.5rem)]')} id="rules-heading">Simple work.<br />Repeatable weeks.</h2>
         </div>
-        <div className="grid gap-px bg-stone-300 sm:grid-cols-3 lg:grid-cols-1 xl:grid-cols-3">
+        <div className="grid gap-px bg-frame sm:grid-cols-3 lg:grid-cols-1 xl:grid-cols-3">
           <Rule number="01" icon={<Gauge />} title="Choose the distance">
             Set the programmed distance on Garmin and settle into your preferred sustainable pace.
           </Rule>
@@ -514,7 +514,7 @@ export default function App() {
       </section>
       </main>
 
-      <footer className="flex items-center justify-between border-t border-stone-950 py-6 text-[0.6875rem] font-bold tracking-[0.12em] uppercase">
+      <footer className="flex items-center justify-between border-t border-frame py-6 text-[0.6875rem] font-bold tracking-[0.12em] uppercase">
         <span>FORM / BASE</span>
         <p className="m-0 hidden text-stone-600 sm:block">Built for the next session.</p>
         <Footprints size={24} />

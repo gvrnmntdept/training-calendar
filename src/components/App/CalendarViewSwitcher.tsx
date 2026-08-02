@@ -8,7 +8,7 @@ type CalendarViewSwitcherProps = {
 
 export default function CalendarViewSwitcher({ view, onChange }: CalendarViewSwitcherProps) {
   return (
-    <div className="grid min-h-10 grid-cols-2 border border-stone-300 bg-stone-100" aria-label="Calendar view" role="group">
+    <div className="grid min-h-10 grid-cols-2 border border-line bg-stone-100" aria-label="Calendar view" role="group">
       <button
         type="button"
         className={cn('px-4 text-[0.625rem] font-bold tracking-[0.08em] uppercase transition hover:text-stone-950', view === 'month' ? '!bg-stone-950 !text-white hover:!text-white' : 'text-stone-600')}

@@ -15,9 +15,9 @@ type WorkoutProps = {
 
 function Workout({ title, intensity, icon, accent, children }: WorkoutProps) {
   const accentClasses = {
-    lime: { icon: 'bg-lime-300 text-stone-950', pill: 'border-lime-300 bg-lime-50 text-stone-950' },
-    blue: { icon: 'bg-blue-600 text-white', pill: 'border-blue-600 bg-blue-50 text-blue-700' },
-    orange: { icon: 'bg-orange-500 text-white', pill: 'border-orange-500 bg-orange-50 text-orange-700' },
+    lime: { icon: 'bg-lime-300 text-stone-950', pill: 'border-frame bg-lime-50 text-stone-950' },
+    blue: { icon: 'bg-blue-600 text-white', pill: 'border-frame bg-blue-50 text-blue-700' },
+    orange: { icon: 'bg-orange-500 text-white', pill: 'border-frame bg-orange-50 text-orange-700' },
   }[accent];
 
   return (
@@ -39,7 +39,7 @@ export function RestWorkout() {
   return (
     <Workout title="Complete rest" icon={<HeartPulse />} intensity="RECOVER" accent="blue">
       <p className="font-display mb-2 text-[clamp(2.5rem,5vw,4.5rem)] leading-none font-semibold tracking-tight uppercase">No training today.</p>
-      <div className="border-l-4 border-blue-600 bg-stone-50 p-4">
+      <div className="border-l-4 border-frame bg-stone-50 p-4">
         <p className={cn(kickerClass, 'mb-1')}>Keep the schedule open</p>
         <p className="m-0 text-sm leading-6 text-stone-600">Do not move a missed run or strength session here. A relaxed walk is fine.</p>
       </div>
@@ -80,7 +80,7 @@ export function StrengthWorkout({ label, items, week, session }: {
 
 function ExerciseList({ items }: { items: string[][] }) {
   return (
-    <ul className="mb-2 grid list-none divide-y divide-stone-200 border-y border-stone-300 p-0">
+    <ul className="mb-2 grid list-none divide-y divide-hairline border-y border-line p-0">
       {items.map(([name, dose], index) => (
         <li className="grid gap-1 py-3 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-center sm:gap-5" key={name}>
           <span className="flex items-center gap-3 text-sm font-semibold"><i className="font-display text-xs font-semibold not-italic text-stone-600">{String(index + 1).padStart(2, '0')}</i>{name}</span>
@@ -93,7 +93,7 @@ function ExerciseList({ items }: { items: string[][] }) {
 
 function Callout({ title, children }: { title?: string; children: ReactNode }) {
   return (
-    <div className="flex gap-3 border border-stone-200 bg-stone-50 p-3.5 text-xs leading-5 text-stone-600">
+    <div className="flex gap-3 border border-line bg-stone-50 p-3.5 text-xs leading-5 text-stone-600">
       <Zap className="mt-0.5 shrink-0 text-blue-600" size={16} />
       <span>{title && <strong className="text-stone-950">{title} — </strong>}{children}</span>
     </div>
